@@ -1,0 +1,9 @@
+PORT= 3000
+IP_SERVER= http://localhost
+DB_HOST= localhost
+DB_USER= user
+DB_PASSWORD= password
+DB_NAME= dbProject
+JWT_SECRET= samplejwtsecret
+SMTP_USER= sampleemail@gmail.com
+SMTP_PASS= samplepassword
