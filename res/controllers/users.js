@@ -108,7 +108,7 @@ module.exports = {
       const currDate = moment().format('YYYY-MM-DDThh:mm:ss.ms');
       await jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if(err){
-          error(res, 400, 'Invalid Token', {}, err.message)
+          error(res, 400, 'Invalid Token', err.message, {})
         }else{
           mDetail(decoded.id)
             .then((responseDetail) => {
@@ -171,7 +171,7 @@ module.exports = {
       const token = req.query.token
       await jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         if(err){
-          error(res, 400, 'Invalid Token', {}, err.message)
+          error(res, 400, 'Invalid Token', err.message, {})
         }else{
           mDetail(decoded.id)
             .then((responseDetail) => {
