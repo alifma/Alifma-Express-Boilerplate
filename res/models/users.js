@@ -47,7 +47,7 @@ module.exports = {
       })
     },
     // nodemailer
-    mSendVerif: async (targetEmail, link) => {
+    mSendMail: async (targetEmail, title, mailData) => {
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
@@ -60,12 +60,8 @@ module.exports = {
       let info = await transporter.sendMail({
         from: `"SMTP Development" <${process.env.SMTP_USER}>`, // sender address
         to: targetEmail, // list of receivers
-        subject: "Account Confirmation", // Subject line
-        html: `
-        <h1>Please Confirm Your Account</h1>
-        <p> Click the link below to confirm you account</p>
-        <a href="${link}">Verif your account</a>
-        `, // html body
+        subject: title, // Subject line
+        html: mailData, // html body
       });
     }
   }
